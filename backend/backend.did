@@ -1,0 +1,24 @@
+type Work = 
+ record {
+   description: opt text;
+   id: nat;
+   imageUrl: text;
+   title: text;
+ };
+type Result = 
+ variant {
+   err: text;
+   ok: nat;
+ };
+type ArtistInfo = 
+ record {
+   bio: text;
+   contactEmail: text;
+   name: text;
+ };
+service : {
+  addWork: (text, text, opt text) -> (Result);
+  getArtistInfo: () -> (ArtistInfo) query;
+  getWorks: () -> (vec Work) query;
+  updateArtistInfo: (text, text, text) -> ();
+}
